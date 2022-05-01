@@ -3,8 +3,13 @@ const MongoDbClient=mongoDb.MongoClient;
 
 let database;
 
+let mongoDbUrl='mongodb://localhost:27017'
+
+if(process.env.MONGODB_URL){
+mongoDbUrl=process.env.MONGODB_URL
+}
 async function connectToDataBase(){
-    const client=await MongoDbClient.connect('mongodb://localhost:27017');
+    const client=await MongoDbClient.connect(mongoDbUrl);
     database=client.db('Portfolio');
 
 }
