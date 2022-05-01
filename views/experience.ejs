@@ -1,0 +1,52 @@
+
+<%if(experienceInfo.length>0){%>
+<section class="services" id="experience">
+    <div class="content">
+        <div class="title"><span>My Experiences</span></div>
+          <% if ( experienceInfo.length>0 && locals.isAuth && user==locals.loggeduser){%>
+              <a href="/addExperience">Add Experience</a>
+              <%}%>
+              <% if (experienceInfo.length>0){%>
+                  <% for(exp of experienceInfo){%>
+                      <div class="card mb-3" style="margin: center;">
+                          <div class="row no-gutters">
+                          <div class="col-md-3">
+                              <img src="<%=exp.imageUrl%>" class="card-img img-fluid" alt="...">
+                          </div>
+                          <div class="col-md-9">
+                              <div class="card-body">
+                              <h5 class="card-title"><a href="<%=exp.website%>"><%=exp.companyName%></a></h5>
+                              <p class="card-text"><%=exp.description%></p>
+                              <p class="card-text"><small class="text-muted"><%=exp.startDate%>-<%=exp.endDate%></small></p>
+                             
+                                  <% if (locals.isAuth && user==locals.loggeduser){%>
+                                  <a href="/updateExperience/<%=exp.id%>">Edit Experience</a>
+                                  <i class="fa fa-trash-o deleteExperience" data-experienceid="<%=exp.id%>" data-csrf="<%=locals.csrfToken%>"style="font-size:20px;margin-left:20px;color:rgb(240, 95, 95)"></i>
+                               
+                              <%}%>
+                              </div>
+                          </div>
+                          </div>
+                      </div>
+                      <%}%>
+               
+                <%}%>
+            </div>
+        </section>
+                <%}else{%>
+                    <% if (locals.isAuth && user==locals.loggeduser){%>
+                    <section class="services" id="services">
+                    <div class="content">
+                       
+                        <div class="title"><span>My Experiences</span></div>
+                      
+                        <div class="button emptyCol" style="text-align: center;">
+                            <h4> Add your Experiences here</h4>
+                            <a href="/addExperience" style="text-align: center; font-size:1.3rem;">Add Experience</a>
+                        </div>
+                    </div>
+                </section>
+
+                            <%}%>
+              
+                <%}%>

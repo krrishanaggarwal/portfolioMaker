@@ -1,0 +1,73 @@
+
+<div class="container">
+    <h1><%=heading%></h1>
+
+<form action="<%=path%>?_csrf=<%=locals.csrfToken%>" method="POST" enctype="multipart/form-data">
+   
+     <div class="row">
+        <div class="column">
+            <label for="name">Name</label>
+            <input type="text" name="fullname"id="name" placeholder="Your name here" value="<%=aboutData.fullname%>">
+        </div>
+        <div class="column">
+            <label for="designation">Designation</label>
+            <input type="text" name="designation"id="designation" placeholder="Eg : Web Developer">
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <label for="address">Address</label>
+            <input type="text" name="address"id="address" placeholder="Your address" ">
+        </div>
+       
+    </div>
+    <div class="row">
+        <div class="column">
+            <label for="contact">Contact</label>
+            <input type="text" name="contact"id="contact" placeholder="Your contact Number" minlength="10" maxlength="10">
+        </div>
+        <div class="column">
+            <label for="email">Email</label>
+            <input type="email" name="email"id="email" placeholder="Your email Address" ">
+        </div>
+      
+       
+    </div>
+    <div class="row">
+        <div class="column">
+            <label for="image">Profile Image</label>
+            <input type="file" name="image" id="image" accept="image/png,image/jpg"<% if(imageReq){%>required <%}%> >
+        </div>
+       
+    </div>
+    <div class="row">
+        <div class="column">
+            <label for="linkedIn">LinkedIn</label>
+            <input type="url" name="linkedIn" id="linkedIn" value="<%=aboutData.linkedIn%>" >
+        </div>
+        <div class="github">
+            <label for="github">Github</label>
+            <input type="url" name="github" id="github" value="<%=aboutData.github%>" >
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <label for="leetcode">Leetcode Profile</label>
+            <input type="url" name="leetcode" id="leetcode" value="<%=aboutData.leetcode%>" >
+        </div>
+        <div class="column">
+            <label for="resume">Resume</label>
+            <input type="url" name="resume" id="resume" value="<%=aboutData.resume%>" >
+        </div>
+    </div>
+<div class="row">
+    <div class="column">
+        <label for="description">Add Description</label>
+        <textarea name="description" id="description" cols="30" rows="6" minlength="450" maxlength="700" placeholder="Describe yourself in detail here"  required><%=aboutData.description%></textarea>
+    </div>
+</div>
+
+    <button class="btn">Save </button>
+    
+    </form>
+    </div>

@@ -1,0 +1,58 @@
+<%if(projectInfo.length>0){%>
+<section class="services" id="projects">
+    <div class="content">
+      <div class="title"><span>My Projects</span></div>
+      <% if (projectInfo.length>0 && locals.isAuth && user==locals.loggeduser){%>
+        <a href="/addProject">Add Project</a>
+        <%}%>
+      <div class="boxes">
+        <% if (projectInfo.length>0){%>
+        
+         
+            <% for(project of projectInfo){%>
+        <div class="box">
+         
+          <div class="topic"><%=project.projectName%></div>
+          <div class="projectTags">
+            <%if(typeof(project.techUsed)==="string"){%>
+              <button class="projectTag"><%=project.techUsed%></button>
+            <%}else{%>
+            <%for(tag of project.techUsed){%>
+            <button class="projectTag"><%=tag%></button>
+            <%}%>
+            <%}%>
+        </div>
+        <ul class="flexbuttonList">
+          <div class="flex-button"> 
+            <span class="iconify-inline" data-icon="carbon:view"></span><a class="email" href="/projectDetail/<%=project.id%>">View</a>
+          </div>
+          <% if (locals.isAuth && user==locals.loggeduser){%>
+            <div class="flex-button">
+              <span class="iconify" data-icon="ant-design:edit-outlined"></span><a class="email" href="/updateProject/<%=project.id%>">Edit</a>
+            </div>
+            <i class="fa fa-trash-o deleteProject" data-projectid="<%=project.id%>" data-csrf="<%=locals.csrfToken%>"style="font-size:30px;margin-left:20px;color:rgb(240, 95, 95)"></i>
+            <%}%>
+        </ul>
+         
+        </div>
+        <%}%>
+      </div>
+    </div>
+  </section>
+        <%}%>
+        <%}else{%>
+          <% if (locals.isAuth && user==locals.loggeduser){%>
+          <section class="services" id="services">
+            <div class="content">
+              <div class="title"><span>My Projects</span></div>
+         
+            <div class="button emptyCol" style="text-align: center;">
+                <h4> Please add some Projects </h4>
+                <a href="/addProject" style="text-align: center; font-size:1.3rem;">Add Project</a>
+              </div>
+              </div>
+            </section>
+                <%}%>  
+    <%}%>
+  
+

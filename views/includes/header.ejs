@@ -1,0 +1,85 @@
+<header>
+   <!-- Theme bottom -->
+
+   <% if (locals.isAuth && user==locals.loggeduser){%>
+   <div class="scroll-button">
+     
+    <span>
+      <div class="dropdown show">
+        <button class=" btn dropdown-toggle" href="#" role="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="iconify-inline" data-icon="icon-park-outline:theme" style="color: white; font-size:27px"></span>
+        </span>
+      </button>
+      
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item" type="button" value="Light" data-csrf="<%=locals.csrfToken%>">Light</button>
+          <button class="dropdown-item" type="button" value="Dark" data-csrf="<%=locals.csrfToken%>">Dark</button>
+          <button class="dropdown-item" type="button" value="Blue" data-csrf="<%=locals.csrfToken%>">Blue</button>
+          <button class="dropdown-item" type="button" value="Sea"  data-csrf="<%=locals.csrfToken%>">Sea</button>
+        </div>
+      </div>
+      <%}%>
+    </div>
+  
+    <nav>
+        <div class="navbar">
+            <div class="logo"><a href="#">Portfolio</a></div>
+            <ul class="menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                 
+            <% if (locals.isAuth) {%>
+                    <form action="/logout" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= locals.csrfToken%>">
+                        <button class="button">Logout </button>
+                    </form>
+                </li>
+               
+                <%}else{%>
+                  <li><a href="#contact">Contact</a></li>
+                    <li><a href="/login">Login</a></li>
+
+                    <%}%>
+                    <div class="cancel-btn">
+                      <span class="iconify-inline" data-icon="bytesize:close"></span>
+                    </div>
+        </ul>
+        <div class="media-icons">
+          <%if(about.github){%>
+            <a href="<%=about.github%>"><span class="iconify-inline" data-icon="ant-design:github-filled"></span></a>
+          <%}%>
+          <%if(about.linkedIn){%>
+            <a href="<%=about.linkedIn%>"><span class="iconify-inline" data-icon="akar-icons:linkedin-box-fill"></span></a>
+          <%}%>
+          <%if(about.leetcode){%>
+            <a href="<%=about.leetcode%>"><span class="iconify" data-icon="simple-icons:leetcode"></span></a>
+          <%}%>
+         
+        </div>
+        <div class="menu-btn">
+          <span class="iconify-inline" data-icon="charm:menu-hamburger"></span>
+        </div>
+      </div>
+        
+    </nav>
+     <!-- Home Section Start -->
+  <section class="home" id="home">
+    <div class="home-content">
+      <div class="text">
+        <div class="text-one">Hello,</div>
+        <div class="text-two">I am <%=about.fullname%></div>
+        <div class="text-three"><%=about.designation%></div>
+      </div>
+      <div class="button">
+       
+        <a href="<%=about.resume%>" target="_blank"><button> Resume</button></a>
+        
+      </div>
+    </div>
+   
+  </section>
+</header>

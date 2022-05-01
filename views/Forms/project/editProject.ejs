@@ -1,0 +1,10 @@
+<%- include('../.././includes/head',{pageTitle:"Update Project"})%>
+<script src="/projectForm.js" defer></script>
+<link rel="stylesheet" href="/otherFormStyle.css">
+</head>
+<body>
+ 
+    <%- include('projectForm',{path:'/updateProject/'+projectInfo.id,projectInfo:projectInfo,imageReq:false,heading:"Update Project"})%>
+   
+</body>
+</html>

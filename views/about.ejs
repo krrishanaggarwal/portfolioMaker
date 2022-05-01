@@ -1,0 +1,26 @@
+<section class="about" id="about">
+    <div class="content">
+        <div class="title"><span>About Me</span></div>
+        <div class="about-details">
+            <div class="left">
+                <% if (about){%>
+                    <img src="<%=about.imageUrl%>" alt="wait">
+            </div>
+            <div class="right">
+                    <p>
+                        <%=about.description%>
+                    </p>
+                    <% if (locals.isAuth && user==locals.loggeduser){%>
+                        <div class="topic">
+                            <a href="/addAbout/<%=about.id%>">Edit about</a>
+                        </div>
+                        <%}%>
+            </div>
+        </div>
+    </div>
+</section>
+        <%} else{%>
+            <% if (locals.isAuth && user==locals.loggeduser){%>
+                <a href="/addAbout">Add about</a>
+                <%}%>
+                    <%}%>

@@ -1,0 +1,40 @@
+<%- include('.././includes/head',{pageTitle:"SignUp"})%>
+    <link rel="stylesheet" href="authformStyle.css">
+    </head>
+
+    <body>
+        <div class="center">
+            <h1>
+                Create a account
+            </h1>
+            <% if(data.errorMessage){%>
+                <section class="alert">
+                    <h2>Invalid Input</h2>
+                    <p><%=data.errorMessage%></p>
+                </section>
+
+            <%}%>
+            <form action="/signup" method="POST">
+                <input type="hidden" name="_csrf" value="<%= locals.csrfToken%>">
+
+                <div class="txt_field">
+                    <input type="email" name="email" id="email" placeholder="Email" value="<%=data.email%>" required>
+                    <span></span>
+                    <label>Email</label>
+                </div>
+            
+
+                <div class="txt_field">
+                    <input type="password" name="password" id="password" placeholder="password" required>
+                    <span></span>
+                    <label>Password</label>
+                </div>
+                <button class="btn">Create Account</button>
+            </form>
+            <div class="signup_link">
+                Have a account ? <a href="/login">Login</a>
+            </div>
+        </div>
+    </body>
+
+    </html>

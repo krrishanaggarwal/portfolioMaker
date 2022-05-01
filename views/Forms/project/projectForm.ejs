@@ -1,0 +1,84 @@
+
+<div class="container">
+    <h1><%=heading%></h1>
+<form action="<%=path%>?_csrf=<%=locals.csrfToken%>" method="POST" enctype="multipart/form-data">
+    
+    <div class="row">
+        <div class="column">
+            <label for="projectName">Project Name</label>
+        <input type="text" name="projectName" id="projectName" value="<%=projectInfo.projectName%>" required>
+        </div>
+        <div class="column">
+            <label for="image">Project Cover</label>
+            <input type="file" name="image" id="image" accept="image/png,image/jpg"<% if(imageReq){%>required <%}%> >
+        </div>
+    </div>
+   
+    
+    
+        <div class="TechStackList">
+            <%if(projectInfo.length==0){%>
+                
+                <div class="techDiv">
+                    <div class="row">
+                        <div class="column">
+                            <label for="techUsed">Add Your Skill</label>
+                            <input type="text" name="techUsed" class="inputSkill" id="techUsed" required>
+                            <i class="fa fa-trash-o deleteSkill" style="font-size:20px;margin-left:20px;color:rgb(240, 95, 95)"></i>
+                        </div>
+                     </div>
+               </div>
+                <%}else {%>
+                    <%if(typeof(projectInfo.techUsed)==="string"){%>
+                        <div class="techDiv">
+                            <div class="row">
+                                <div class="column">
+                                    <label for="techUsed">Add Your Skill</label>
+                                    <input type="text" name="techUsed" class="inputSkill" id="techUsed"  value="<%=skill%>" required>
+                                    <i class="fa fa-trash-o deleteSkill" style="font-size:20px;margin-left:20px;color:rgb(240, 95, 95)"></i>
+                                </div>
+                             </div>
+                        </div>
+                        <%} else{%>
+                    <%for (skill of projectInfo.techUsed){%>
+                        <div class="techDiv">
+                            <div class="row">
+                                <div class="column">
+                                    <label for="techUsed">Add Your Skill</label>
+                                    <input type="text" name="techUsed" class="inputSkill" id="techUsed"  value="<%=skill%>" required>
+                                    <i class="fa fa-trash-o deleteSkill" style="font-size:20px;margin-left:20px;color:rgb(240, 95, 95)"></i>
+                                </div>
+                             </div>
+                        </div>
+                    <%}%>
+                    <%}%>
+                    <%}%>
+        </div>
+        <button id="addMoreTechUsed">Add more</button>
+        <div class="row">
+            <div class="column">
+                <label for="githubLink">GitHub link</label>
+                <input type="url" name="github" id="githubLink" value="<%=projectInfo.github%>">
+            </div>
+            <div class="column">
+                <label for="website">Web link</label>
+                <input type="url" name="website" id="website" placeholder="Provide link if project is hosted" value="<%=projectInfo.website%>">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <label for="duration"> Date</label>
+                <input type="date" name="duration" id="duration" value="<%=projectInfo.duration%>">
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <label for="description">Add Description</label>
+                <textarea name="description" id="description" rows="3" required><%=projectInfo.description%></textarea>
+            </div>
+        </div>
+    <button class="btn">Add Project </button>
+    </p>
+    </form>
+</div>

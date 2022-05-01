@@ -1,0 +1,60 @@
+<%- include('./includes/head',{pageTitle:"StartPage"})%>
+<link rel="stylesheet" href="/projectDetail.css">
+
+    </head>
+
+
+    <body style="background:url"">
+       
+        <div class = "card-wrapper">
+            <div class = "card">
+                  <div class = "product-content">
+                    <h2 class = "product-title"><%=projectInfo.projectName%></h2>
+                    <div class = "social-links">
+                        <% if(projectInfo.github.length>0) {%>
+                        <a href = "<%=projectInfo.github%>">
+                            <span class="iconify-inline" data-icon="logos:github-icon"></span>
+                        </a>
+                        <%}%>
+                        <% if(projectInfo.website.length>0) {%>
+                            <a href = "<%=projectInfo.website%>">
+                            <span class="iconify-inline" data-icon="eva:external-link-fill"></span>
+                        </a>
+                        <%}%>
+                    </div>
+                    <% if (locals.isAuth && projectInfo.user==locals.loggeduser){%>
+                        <div class = "purchase-info">
+                        <button type = "button" class = "btn">
+                            <a class="tag" href="/updateProject/<%=projectInfo.id%>" >Edit Project</a>
+                        </button>
+                        </div>
+                    <%}%>
+
+                   
+
+                    <div class = "product-detail"> 
+                        <h2>Project Description: </h2>
+                        <p><%=projectInfo.description%></p>
+                        <h4>Technology Used: </h4>
+                        <div class = "purchase-info">
+                    <%if(typeof(projectInfo.techUsed)==="string"){%>
+                        <button type = "button" class = "btn">
+                            <%=projectInfo.techUsed%>
+                        </button>
+                        <%}else{%>
+                    <%for(tag of projectInfo.techUsed){%>
+                        
+                            <button type = "button" class = "btn">
+                          <%=tag%>
+                    </button>
+                        
+                        <%}%>
+                        <%}%>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+
+ <div class="container">
+ <h1><%=heading%></h1>
+<form action="<%=path%>?_csrf=<%=locals.csrfToken%>" method="POST">
+
+
+    <div class="technicalList">
+        <%if(skillInfo.length==0){%>
+            <div class="row">
+                <div class="column">
+                    <label for="skill">Add Your Skill</label>
+                    <input type="text" class="inputSkill" name="skill" id="skill" required>
+                </div>
+                <div class="column"> 
+                    <label for="level">Add your Proficiency</label>
+                    <input type="number" class="inputSkill" name="level" id="level" required>
+                    <i class="fa fa-trash-o deleteSkill" style="font-size:20px;margin-left:20px;color:rgb(240, 95, 95)"></i>
+                </div>
+            </div>
+
+            <%} else{%>
+                <%for (skill of skillInfo){%>
+                    <div class="row">
+                        <div class="column">
+                            <label for="skill">Add Your Skill</label>
+                            <input type="text" class="inputSkill" name="skill" id="skill" value="<%=skill.skill%>">
+                        </div>
+                        <div class="column"> 
+                            <label for="level">Add your Proficiency</label>
+                            <input type="number" class="inputSkill" name="level" id="level" value="<%=skill.proficiency%>">
+                           
+                            <i class="fa fa-trash-o deleteSkill" style="font-size:20px;margin-left:20px;color:rgb(240, 95, 95)"></i>
+                        
+                        </div>
+                    </div>
+                        
+                <%}%>
+                <%}%>
+    </div>
+    <button class="btn" id="addTechSkills">Add more</button>
+    <button class="btn">Save </button>
+
+</form>
+</div>

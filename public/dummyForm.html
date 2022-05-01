@@ -1,0 +1,141 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+
+</head>
+<body>
+ 
+    <div class="technicalList">
+      
+                        <div>
+                            <label for="skill">Add Your Skill</label>
+                            <input type="text" class="inputSkill" name="skill" id="skill" ">
+                            <label for="level">Add your Proficiency</label>
+                            <input type="number" class="inputSkill" name="level" id="level">
+                            <p class="deleteSkill">Delete</p>
+                        </div>
+
+        <div>
+            <label for="skill">Add Your Skill</label>
+            <input type="text" class="inputSkill" name="skill" id="skill" ">
+            <label for="level">Add your Proficiency</label>
+            <input type="number" class="inputSkill" name="level" id="level">
+            <p class="deleteSkill">Delete</p>
+        </div>
+</div>
+    <p id="addTechSkills">
+Add more
+    </p>
+
+
+
+
+</body>
+<script>
+let addSkillBtn=document.getElementById('addTechSkills');
+let techSkillList=document.querySelector('.technicalList');
+
+let deleteButtons=document.querySelectorAll('.deleteSkill');
+
+
+
+
+
+
+
+
+addSkillBtn.addEventListener('click',function(){
+
+    let newSkill=document.createElement('div');
+    newSkill.innerHTML=
+    `
+    <label for="skill">Add Your Skill</label>
+    <input type="text" class="inputSkill" name="skill" id="skill">
+    <label for="level">Add your Proficiency</label>
+    <input type="number" class="inputSkill" name="level" id="level">
+    <p class="deleteSkill">Delete</p>
+    `
+    
+    techSkillList.appendChild(newSkill)
+    
+})
+
+
+function deleteBlock(event){
+    console.log("clicked")
+    const buttonElement=event.target
+    console.log(buttonElement.parentElement)
+    
+}
+
+function deleteSkills(){
+    let deleteButtons=document.querySelectorAll('.deleteSkill');
+    deleteBlock()
+    for ( deleteElement of deleteButtons){
+        deleteElement.addEventListener('click',deleteSkills)
+    }
+
+
+}
+
+</script>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id ="para">
+        <p class="del">
+        Hi World
+        </p>
+
+    </div>
+    <p id="add">Add</p>
+</body>
+<script>
+
+    let ele=document.getElementById('para')
+    let addButton=document.getElementById('add')
+    
+
+    function addDiv(){
+        let newPara=document.createElement('p')
+        newPara.classList.add("del")
+        newPara.innerHTML="hello"
+
+        ele.append(newPara)
+    
+        let delButton=document.querySelectorAll(".del")
+        for ( deleteElement of delButton){
+            deleteElement.addEventListener('click',deleteBlock)
+        }
+    }
+
+    addButton.addEventListener('click',addDiv)
+
+    function deleteBlock(event){
+        console.log("clicked")
+        const buttonElement=event.target
+        buttonElement.remove()  
+        return 
+    }
+    
+  
+
+    
+
+
+</script>
+</html>
+

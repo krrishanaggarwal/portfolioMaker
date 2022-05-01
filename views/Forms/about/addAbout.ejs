@@ -1,0 +1,22 @@
+<%- include('../.././includes/head',{pageTitle:"Add Description"})%>
+<link rel="stylesheet" href="/otherFormStyle.css">
+</head>
+<body>
+
+   
+    <%- include('aboutform',{path:'/addAbout',aboutData:{
+    description:"",
+    resume:"",
+    contact:"",
+    address:"",
+    github:"",
+    fullname:"",
+    leetcode:"",
+    linkedIn:"",
+    designation:"",
+    email:""
+    },imageReq:true,heading:"Please Provide Your Details"})%>
+   
+</body>
+</html>
+
