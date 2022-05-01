@@ -52,9 +52,9 @@ app.use(projectroutes);
 app.use(experienceroutes);
 
 
-let port=process.env.PORT;
-if (!port || port==""){
-    port=3600;
+let port=3600;
+if (process.env.PORT){
+    port=process.env.PORT;
 }
 db.connectToDataBase().then(function(){
     app.listen(port);
