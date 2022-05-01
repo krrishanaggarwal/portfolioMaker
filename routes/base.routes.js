@@ -5,6 +5,7 @@ const controller=require('../controllers/index.controller');
 
 
 router.get('/profile/:id',controller.getstartPage)
+router.get('/',controller.getCoverPage)
 
 module.exports=router;
 

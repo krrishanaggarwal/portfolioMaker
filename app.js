@@ -59,5 +59,5 @@ if (process.env.PORT){
 db.connectToDataBase().then(function(){
     app.listen(port);
 }).catch(function(error){
-    console.log("Error");
+    console.log(error);
 })

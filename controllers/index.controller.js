@@ -4,6 +4,12 @@ const Project=require('../models/project.model')
 const User=require('../models/user.model')
 const Experience=require('../models/experience.model')
 
+
+
+
+function getCoverPage(req,res){
+    res.render('start');
+}
 async function getstartPage(req, res) {
     let username = req.params.id
     console.log(username,"g")
@@ -34,4 +40,5 @@ async function getstartPage(req, res) {
 
 module.exports={
     getstartPage: getstartPage,
+    getCoverPage:getCoverPage,
 }
