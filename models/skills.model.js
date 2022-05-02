@@ -15,7 +15,7 @@ class SkillModel{
     async saveSkill(){
         if (this.id){
             // update
-            const skillId=ObjectId(this.id);
+            const skillId= new ObjectId(this.id);
             await db.getDb().collection('skills').updateOne({
              _id:skillId   
             },{

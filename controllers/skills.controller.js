@@ -2,18 +2,13 @@
 
 const SkillModel=require('../models/skills.model')
 function getaddSkillForm(req, res) {
-    res.render('Forms/skills/addNewSkill');
+    res.render('Forms/skills/addNewskill');
 }
 
 async function addNewSkill(req, res) {
     const skills=req.body.skill;
     const levels=req.body.level;
     console.log(req.session.username)
-    // if (!skills){
-    //     console.log("Please add atleast 1 skill")
-    //     res.redirect(`/addSkill/${req.session.username}`)
-    //     return;
-    // }
     await SkillModel.deleteAll(req.session.username);
     if (typeof(skills)==="string"){
         console.log("only 1")

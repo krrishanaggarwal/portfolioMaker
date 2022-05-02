@@ -78,11 +78,17 @@ textarea:focus,
 input:focus{
     outline: none;
     border-color:var(--primary-color);
+  
 }
 button{
     border: none;
     padding: 10px 20px;
-    background: var(--primary-color);
+    background: var(--font-color);
     color: #ffffff;
     border-radius: 3px;
 }
+
+.btn{
+    color:var(--font-color)
+}
+
