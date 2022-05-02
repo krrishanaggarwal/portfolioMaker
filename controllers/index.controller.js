@@ -12,16 +12,14 @@ function getCoverPage(req,res){
 }
 async function getstartPage(req, res) {
     let username = req.params.id
-    console.log(username,"g")
     const checkUser= await User.findUserByUsername(username)
-    console.log(checkUser,"Aastha")
-    if(!checkUser){
-        
+    if(!checkUser){  
         return res.redirect('/404');
     }
     const aboutInfo = await About.getInfo(username);
     if(!aboutInfo && req.session.username){
         res.render('Forms/about/addAbout');
+        return;
     }
 
     const skillInfo=await SkillModel.fetchSkillByUser(username);

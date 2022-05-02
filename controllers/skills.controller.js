@@ -9,11 +9,11 @@ async function addNewSkill(req, res) {
     const skills=req.body.skill;
     const levels=req.body.level;
     console.log(req.session.username)
-    if (!skills){
-        console.log("Please add atleast 1 skill")
-        res.redirect(`/addSkill/${req.session.username}`)
-        return;
-    }
+    // if (!skills){
+    //     console.log("Please add atleast 1 skill")
+    //     res.redirect(`/addSkill/${req.session.username}`)
+    //     return;
+    // }
     await SkillModel.deleteAll(req.session.username);
     if (typeof(skills)==="string"){
         console.log("only 1")
