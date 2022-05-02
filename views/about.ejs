@@ -3,17 +3,17 @@
         <div class="title"><span>About Me</span></div>
         <div class="about-details">
             <div class="left">
-                <% if (about){%>
-                    <img src="<%=about.imageUrl%>" alt="wait">
+                <% if (aboutInfo){%>
+                    <img src="<%=aboutInfo.imageUrl%>" alt="wait">
             </div>
             <div class="right">
                     <p>
-                        <%=about.description%>
+                        <%=aboutInfo.description%>
                     </p>
                     <ul class="flexbuttonList">
                     <% if (locals.isAuth && user==locals.loggeduser){%>
                         <div class="flex-button">
-                          <span class="iconify" data-icon="ant-design:edit-outlined"></span><a class="email" href="/addAbout/<%=about.id%>">Edit</a>
+                          <span class="iconify" data-icon="ant-design:edit-outlined"></span><a class="email" href="/addAbout/<%=aboutInfo.id%>">Edit</a>
                         </div>
                         <%}%>
                       </ul>

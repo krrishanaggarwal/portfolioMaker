@@ -1,5 +1,5 @@
 <div class="container">
-    <h1><%=heading%>></h1>
+    <h1><%=heading%></h1>
 <form action="<%=path%>?_csrf=<%=locals.csrfToken%>" method="POST" enctype="multipart/form-data">
     <div class="row">
         <div class="column">
@@ -22,12 +22,12 @@
     </div>
     <div class="row">
         <div class="column">
-            <label for="startDate"> startDate</label>
-            <input type="date" name="startDate" id="startDate" value="<%=experienceInfo.startDate%>">
+            <label for="startDate">Start Date</label>
+            <input class="datePickerId" type="date" name="startDate" min="2000-01-01"  value="<%=experienceInfo.startDate%>">
         </div> 
         <div class="column">
-            <label for="endDate"> startDate</label>
-            <input type="date" name="endDate" id="endDate" value="<%=experienceInfo.endDate%>">
+            <label for="endDate">End Date</label>
+            <input class="datePickerId" type="date" name="endDate"  value="<%=experienceInfo.endDate%>">
         </div>
     </div>
     <div class="row">

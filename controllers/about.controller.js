@@ -35,19 +35,17 @@ async function updateaboutform(req,res){
 
 
 
-async function addAbout(req, res,next) {
+async function addAbout(req, res) {
     console.log(req.file.filename)
-    // to check in try block if no session.user that block
     const about = new About({...req.body,
         image:req.file.filename,
         user:req.session.username});
         try {
             await about.saveInfo();
         } catch (error) {
-            return next(error);
+            return;
         }
-    res.redirect('/addSkill')
-    // res.redirect(`/profile/${req.session.username}`);
+    res.redirect(`/profile/${req.session.username}`);
 
 }
 

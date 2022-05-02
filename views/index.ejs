@@ -9,11 +9,11 @@
     </head>
 
     <body>
-        <%- include('./includes/header',{about:about})%>
+        <%- include('./includes/header',{aboutInfo:aboutInfo})%>
            
            
                 <!-- About Section -->
-                <%- include('about',{about:about,user:user})%>
+                <%- include('about',{aboutInfo:aboutInfo,user:user})%>
 
                  <!-- Skill Section -->
                  <%- include('skills',{skillInfo:skillInfo,user:user})%>
@@ -23,7 +23,7 @@
 
                  <!-- Experience Section  -->
                  <%- include('experience',{experienceInfo:experienceInfo,user:user})%>
-                 <%- include('contact',{experienceInfo:experienceInfo,user:user})%>
+                 <%- include('contact',{aboutInfo:aboutInfo,user:user})%>
 
                  
     </body>

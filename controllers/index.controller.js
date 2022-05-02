@@ -28,7 +28,7 @@ async function getstartPage(req, res) {
     console.log(experienceInfo);
     res.render('index', {
         user: username
-        ,about: aboutInfo,
+        ,aboutInfo: aboutInfo,
         skillInfo:skillInfo,
         projectInfo:projectInfo,
         experienceInfo:experienceInfo

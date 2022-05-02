@@ -14,7 +14,6 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
           <button class="dropdown-item" type="button" value="Light" data-csrf="<%=locals.csrfToken%>">Light</button>
           <button class="dropdown-item" type="button" value="Dark" data-csrf="<%=locals.csrfToken%>">Dark</button>
-          <button class="dropdown-item" type="button" value="Blue" data-csrf="<%=locals.csrfToken%>">Blue</button>
           <button class="dropdown-item" type="button" value="Sea"  data-csrf="<%=locals.csrfToken%>">Sea</button>
         </div>
       </div>
@@ -49,14 +48,14 @@
                     </div>
         </ul>
         <div class="media-icons">
-          <%if(about.github){%>
-            <a href="<%=about.github%>"><span class="iconify-inline" data-icon="ant-design:github-filled"></span></a>
+          <%if(aboutInfo.github){%>
+            <a href="<%=aboutInfo.github%>"><span class="iconify-inline" data-icon="ant-design:github-filled"></span></a>
           <%}%>
-          <%if(about.linkedIn){%>
-            <a href="<%=about.linkedIn%>"><span class="iconify-inline" data-icon="akar-icons:linkedin-box-fill"></span></a>
+          <%if(aboutInfo.linkedIn){%>
+            <a href="<%=aboutInfo.linkedIn%>"><span class="iconify-inline" data-icon="akar-icons:linkedin-box-fill"></span></a>
           <%}%>
-          <%if(about.leetcode){%>
-            <a href="<%=about.leetcode%>"><span class="iconify" data-icon="simple-icons:leetcode"></span></a>
+          <%if(aboutInfo.leetcode.length>5){%>
+            <a href="<%=aboutInfo.leetcode%>"><span class="iconify" data-icon="simple-icons:leetcode"></span></a>
           <%}%>
          
         </div>
@@ -71,12 +70,12 @@
     <div class="home-content">
       <div class="text">
         <div class="text-one">Hello,</div>
-        <div class="text-two">I am <%=about.fullname%></div>
-        <div class="text-three"><%=about.designation%></div>
+        <div class="text-two">I am <%=aboutInfo.fullname%></div>
+        <div class="text-three"><%=aboutInfo.designation%></div>
       </div>
       <div class="button">
        
-        <a href="<%=about.resume%>" target="_blank"><button> Resume</button></a>
+        <a href="<%=aboutInfo.resume%>" target="_blank"><button> Resume</button></a>
         
       </div>
     </div>
