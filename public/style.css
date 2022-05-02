@@ -225,8 +225,8 @@ section .title span::after{
   width:45%;
 }
 .about .left img{
-  height:400px;
-  width:400px;
+  height:300px;
+  width:300px;
   object-fit: cover;
   border-radius: 12px;
 }
@@ -242,6 +242,7 @@ section .topic{
 .about-details .right p{
   text-align: justify;
   color:var(--secondary-color);
+  word-wrap:break-word;
 }
 section .button{
   margin:16px 0;

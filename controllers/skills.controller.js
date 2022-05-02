@@ -6,7 +6,6 @@ function getaddSkillForm(req, res) {
 }
 
 async function addNewSkill(req, res) {
-    console.log(req.body.skill)
     const skills=req.body.skill;
     const levels=req.body.level;
     console.log(req.session.username)
