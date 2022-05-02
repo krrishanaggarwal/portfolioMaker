@@ -24,7 +24,7 @@ const createSessionConfig=require('./config/session');
 const csrfTokenMiddleware=require('./middlewares/csrf-token')
 const errorHandlerMiddleware=require('./middlewares/error-handler');
 const checkAuthStatusrMiddleware=require('./middlewares/check-auth');
-const protectRoutesMiddleware=require('./middlewares/protectRoutes')
+const protectRoutesMiddleware=require('./middlewares/protectRoutes');
 const csrf=require('csurf');
 const app=express();
 app.set('view engine','ejs');
