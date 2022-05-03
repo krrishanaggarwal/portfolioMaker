@@ -4,8 +4,6 @@ async function deleteProject(event){
     const buttonElement=event.target
     const projectId=buttonElement.dataset.projectid;
     const csrfToken=buttonElement.dataset.csrf;
-    console.log(csrfToken)
-    console.log(projectId)
 
     const response=await fetch('/projectRemove/'+projectId+'?_csrf='+csrfToken,{
         method:'DELETE'

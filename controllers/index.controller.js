@@ -25,7 +25,7 @@ async function getstartPage(req, res) {
     const skillInfo=await SkillModel.fetchSkillByUser(username);
     const projectInfo=await Project.getAllProjectsbyUser(username);
     const experienceInfo=await Experience.getAllExperiencesbyUser(username);
-    console.log(experienceInfo);
+  
     res.render('index', {
         user: username
         ,aboutInfo: aboutInfo,

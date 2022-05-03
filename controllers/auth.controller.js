@@ -27,7 +27,7 @@ function getLogin(req, res) {
             
         }
     }
-    console.log(sessionData)
+   
     res.render('auth/login',{data:sessionData});
 }
 
@@ -120,11 +120,10 @@ async function login(req, res, next) {
 }
 
 function logout(req, res) {
-    console.log("reached");
-    console.log(req.session.username);
+  
     req.session.username = null;
     req.session.uid = null;
-    console.log(req.session.username);
+  
     res.redirect('/login');
 }
 

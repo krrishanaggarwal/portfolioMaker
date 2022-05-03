@@ -8,7 +8,7 @@ function getaddProjectForm(req,res){
 async function getUpdateProjectform(req,res,next){
     id=req.params.id;
     const projectInfo=await Project.getInfoById(id);
-    console.log(projectInfo);
+    
     res.render('Forms/project/editProject',{projectInfo:projectInfo})
 }
 
@@ -30,7 +30,7 @@ async function getProjectDetailPage(req,res){
     
     id=req.params.id;
     const projectInfo=await Project.getInfoById(id);
-    console.log(projectInfo);
+
     res.render('projectDetail',{projectInfo:projectInfo})
 }
 

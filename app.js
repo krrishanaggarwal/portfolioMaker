@@ -45,9 +45,9 @@ app.use(authroutes);
 app.use(baseroutes);
 app.use(errorroutes); 
 app.use(themeroutes); 
+app.use(skillroutes);
 app.use(protectRoutesMiddleware);
 app.use(aboutroutes);
-app.use(skillroutes);
 app.use(projectroutes);
 app.use(experienceroutes);
 

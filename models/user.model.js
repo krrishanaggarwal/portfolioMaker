@@ -34,11 +34,11 @@ class User {
     
     }
     static async  findUserByUsername(username){
-        console.log(username)
+        
         const existingUser= await db.getDb().collection('users').findOne({
             name:username
         });
-        console.log(existingUser)
+     
         if(existingUser){
             return true
         }

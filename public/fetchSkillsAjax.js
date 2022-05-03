@@ -1,16 +1,16 @@
 let skillElements= document.getElementById('skillBarAjax')
-// 
 
 let skillBarsList= document.getElementById('skillsBars')
-// alert()
 var url=window.location.pathname;
-
+console.log(window.location.pathname)
 username=url.split("/")[2]
+
 
 async function getSkillsForUser(){
     const response=await fetch(`/skills/${username}`);
-
+    console.log(response)
     const responseData=await response.json();
+    console.log(responseData)
     const skillBarsList=createSkillsList(responseData);
     if(skillElements){
         skillElements.innerHTML=""
@@ -22,9 +22,6 @@ async function getSkillsForUser(){
 }
 
 function createSkillsList(skills){
-    console.log(skills)
-  
-    
     
     for (const skill of skills){
         if(skill.skill && skill.skill.length>0){

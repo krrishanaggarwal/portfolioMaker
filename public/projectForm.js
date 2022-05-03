@@ -5,18 +5,17 @@ let deleteButtons = document.querySelectorAll('i')
 let len=deleteButtons.length
 addTechUsedBtn.addEventListener('click',function(event){
     event.preventDefault()
-    console.log("clicked");
+    
     let newtech=techUsedDiv.cloneNode(true)
     const inputElements=newtech.querySelectorAll(' .inputSkill')
     for (i of inputElements){
-        console.log(i.value)
+       
         i.value=""
     }
     techStackList.appendChild(newtech)
     let deleteButtons=document.querySelectorAll('i')
     len=deleteButtons.length
     for (deleteElement of deleteButtons){
-        console.log(deleteElement.innerHTML)
         deleteElement.addEventListener('click',deleteBlock)
     }
 });
@@ -32,6 +31,5 @@ function deleteBlock(event){
 }
 
 for (deleteElement of deleteButtons){
-    console.log(deleteElement.innerHTML)
     deleteElement.addEventListener('click',deleteBlock)
 }

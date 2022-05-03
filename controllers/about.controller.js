@@ -18,14 +18,14 @@ async function getUpdateAboutform(req,res,next){
 
 }
 async function updateaboutform(req,res){
-    console.log(req.body)
+
     const details =new About({
         ...req.body,
         _id:req.params.id,
         user:req.session.username,
     });
     if (req.file){
-        console.log(req.file.filename,"image Add")
+      
         details.replaceImage(req.file.filename);
     }
     await details.saveInfo();
@@ -36,7 +36,6 @@ async function updateaboutform(req,res){
 
 
 async function addAbout(req, res) {
-    console.log(req.file.filename)
     const about = new About({...req.body,
         image:req.file.filename,
         user:req.session.username});

@@ -38,8 +38,6 @@ function modifyTheme(event){
         user:username
     }
 
-    console.log(event)
-    console.log(`/updateTheme/${username}?_csrf=${csrfToken}`);
     fetch('/updateTheme/'+username+'?_csrf='+csrfToken,{
         method:"POST",
         body:JSON.stringify(theme),

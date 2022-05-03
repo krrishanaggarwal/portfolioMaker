@@ -9,7 +9,7 @@ function getaddExperienceform(req,res){
 async function getUpdateExperienceform(req,res,next){
     id=req.params.id;
     const experienceInfo=await Experience.getInfoById(id);
-    console.log(experienceInfo);
+  
     res.render('Forms/experience/editExperience',{experienceInfo:experienceInfo})
 }
 

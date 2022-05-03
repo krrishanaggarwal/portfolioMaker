@@ -8,10 +8,8 @@ function getaddSkillForm(req, res) {
 async function addNewSkill(req, res) {
     const skills=req.body.skill;
     const levels=req.body.level;
-    console.log(req.session.username)
     await SkillModel.deleteAll(req.session.username);
     if (typeof(skills)==="string"){
-        console.log("only 1")
         const skill=new SkillModel(req.session.username,skills,levels)
         await skill.saveSkill();
         res.redirect(`/profile/${req.session.username}`);
@@ -28,11 +26,8 @@ async function addNewSkill(req, res) {
     }
 
     async function fetchSkills(req,res){
-        console.log("reached")
         username=req.params.id
-        console.log(username)
         const skillInfo=await SkillModel.fetchSkillByUser(username);
-        
         res.json(skillInfo);
     }   
 
